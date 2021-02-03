@@ -63,7 +63,8 @@ fi
 
 if [ "$PVE_Main_version" == 6 ]; then
 	# add PVE 6.0 no subcript to apt source.list
-	echo 'deb http://download.proxmox.com/debian/pve buster pve-no-subscription' > /etc/apt/sources.list.d/pve-no-subscription.list
+	# echo 'deb http://download.proxmox.com/debian/pve buster pve-no-subscription' > /etc/apt/sources.list.d/pve-no-subscription.list
+	echo "deb http://download.proxmox.wiki/debian/pve stretch pve-no-subscription" >/etc/apt/sources.list.d/pve-install-repo.list
 	echo 'adding no subcript source to /etc/apt/sources.list.d/pve-no-subscription.list.....'
 elif [ "$PVE_Main_version" == 5 ]; then
 	# add PVE 5.0 no subcript to apt source.list
@@ -87,8 +88,8 @@ apt-get install ${kernel_headers_latest_version} ${kernel_image_latest_version}
 apt-get -y install dkms build-essential make gcc libelf-dev
 
 
-tar vjxf $PWD/r8125-9.003.05.tar.bz2
-cd r8125-9.003.05
+tar vjxf $PWD/r8125-9.005.01.tar.bz2
+cd r8125-9.005.01
 
 chmod a+x autorun.sh
 ./autorun.sh
